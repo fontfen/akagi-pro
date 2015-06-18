@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Transfonter demo</title>
+	<link href="stylesheet.css" rel="stylesheet">
+	<style>
+		/*
+		http://meyerweb.com/eric/tools/css/reset/
+		v2.0 | 20110126
+		License: none (public domain)
+		*/
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed,
+		figure, figcaption, footer, header, hgroup,
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure,
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		/* common styles */
+		body {
+			background: #f1f1f1;
+			color: #000;
+		}
+		.page {
+			background: #fff;
+			width: 940px;
+			margin: 0 auto;
+			padding: 20px 20px 0 20px;
+			overflow: hidden;
+		}
+		.font-container {
+			overflow-x: auto;
+			overflow-y: hidden;
+			margin-bottom: 40px;
+			line-height: 1.3;
+			white-space: nowrap;
+			padding-bottom: 5px;
+		}
+		h1 {
+			position: relative;
+			background: #444;
+			font-size: 32px;
+			color: #fff;
+			padding: 10px 20px;
+			margin: 0 -20px 10px -20px;
+		}
+		.letters {
+			font-size: 25px;
+			margin-bottom: 10px;
+		}
+		/* fonts demo */
+		
+		.demo-1 {
+			font-family: 'AkagiPro';
+			font-weight: 900;
+			font-style: normal;
+		}
+		.demo-2 {
+			font-family: 'AkagiPro';
+			font-weight: 100;
+			font-style: normal;
+		}
+		.demo-3 {
+			font-family: 'AkagiPro';
+			font-weight: 300;
+			font-style: normal;
+		}
+		.demo-4 {
+			font-family: '398d857af389dc2364fdebdba16356449ae93f901b67a55769f00c11170672e';
+			font-weight: 500;
+			font-style: normal;
+		}
+		.demo-5 {
+			font-family: 'AkagiPro';
+			font-weight: 100;
+			font-style: italic;
+		}
+		.demo-6 {
+			font-family: 'AkagiPro';
+			font-weight: 900;
+			font-style: italic;
+		}
+		.demo-7 {
+			font-family: 'b232aaff09eaa9777c5230c4d94144ec52f5fee3de36f7d2f32c2e8ba7498a0';
+			font-weight: normal;
+			font-style: italic;
+		}
+		.demo-8 {
+			font-family: 'AkagiPro';
+			font-weight: 300;
+			font-style: italic;
+		}
+		.demo-9 {
+			font-family: 'AkagiPro';
+			font-weight: 300;
+			font-style: italic;
+		}
+		.demo-10 {
+			font-family: '6f72dd000aeeeb67887b210058793f0638c0c5a55e20360887e4b1301620f4c';
+			font-weight: normal;
+			font-style: normal;
+		}
+		.demo-11 {
+			font-family: 'AkagiPro';
+			font-weight: 300;
+			font-style: normal;
+		}
+		.demo-12 {
+			font-family: 'AkagiPro-Fat';
+			font-weight: 900;
+			font-style: italic;
+		}
+		.demo-13 {
+			font-family: '0f6b14f594504ced22ebedb586b5f81d08845e638971a0cc4314947a84061c5';
+			font-weight: normal;
+			font-style: italic;
+		}
+		.demo-14 {
+			font-family: 'abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51';
+			font-weight: normal;
+			font-style: normal;
+		}
+		.demo-15 {
+			font-family: 'AkagiPro-Fat';
+			font-weight: 900;
+			font-style: normal;
+		}
+		.demo-16 {
+			font-family: '166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f';
+			font-weight: normal;
+			font-style: normal;
+		}
+		.demo-17 {
+			font-family: 'c1f36a1c2249eb762ede347d0fc77d67ad8db9c8affd52a9b607d190803a55c';
+			font-weight: 500;
+			font-style: italic;
+		}
+		.demo-18 {
+			font-family: '4aea7cd875aebba7e4f74ee824d4cf3945a51d7ca6a026fc8c41a25cc0414c3';
+			font-weight: normal;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+<div class="page">
+
+	<div class="demo-1">
+		<h1>AkagiPro-Black</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-2">
+		<h1>AkagiPro-Thin</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-3">
+		<h1>AkagiPro-Light</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-4">
+		<h1>398d857af389dc2364fdebdba16356449ae93f901b67a55769f00c11170672e</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-5">
+		<h1>AkagiPro-ThinItalic</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-6">
+		<h1>AkagiPro-BlackItalic</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-7">
+		<h1>b232aaff09eaa9777c5230c4d94144ec52f5fee3de36f7d2f32c2e8ba7498a0</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-8">
+		<h1>AkagiPro-LightItalic</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-9">
+		<h1>AkagiPro-ExtraLightItalic</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-10">
+		<h1>6f72dd000aeeeb67887b210058793f0638c0c5a55e20360887e4b1301620f4c</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-11">
+		<h1>AkagiPro-ExtraLight</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-12">
+		<h1>AkagiPro-FatItalic</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-13">
+		<h1>0f6b14f594504ced22ebedb586b5f81d08845e638971a0cc4314947a84061c5</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-14">
+		<h1>abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-15">
+		<h1>AkagiPro-Fat</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-16">
+		<h1>166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-17">
+		<h1>c1f36a1c2249eb762ede347d0fc77d67ad8db9c8affd52a9b607d190803a55c</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+	<div class="demo-18">
+		<h1>4aea7cd875aebba7e4f74ee824d4cf3945a51d7ca6a026fc8c41a25cc0414c3</h1>
+		<div class="font-container">
+			<p class="letters">
+				abcdefghijklmnopqrstuvwxyz <br />
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ <br />
+				0123456789.:,;()*!?'@#<>$%&^+-=~
+			</p>
+			<p style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+			<p style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -143,16 +143,6 @@
 	font-style: italic;
 }
 
-@font-face {
-	font-family: 'abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51';
-	src: url('abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51.eot');
-	src: url('abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51.eot?#iefix') format('embedded-opentype'),
-		url('abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51.woff') format('woff'),
-		url('abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51.ttf')  format('truetype'),
-		url('abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51.svg#abddc25d4efa928250736f106570ee2871ec9d2c44c9f3d17980779cb6f7f51') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
 
 @font-face {
 	font-family: 'AkagiPro-Fat';
@@ -165,16 +155,6 @@
 	font-style: normal;
 }
 
-@font-face {
-	font-family: '166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f';
-	src: url('166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f.eot');
-	src: url('166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f.eot?#iefix') format('embedded-opentype'),
-		url('166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f.woff') format('woff'),
-		url('166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f.ttf')  format('truetype'),
-		url('166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f.svg#166149731b46ec634af9d8df4cdadd9733cece209e667bed5a20b191928827f') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
 
 @font-face {
 	font-family: 'c1f36a1c2249eb762ede347d0fc77d67ad8db9c8affd52a9b607d190803a55c';
